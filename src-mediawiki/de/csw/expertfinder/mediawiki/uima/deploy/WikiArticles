@@ -1,0 +1,9 @@
+# This file contains a list of wiki articles to be processed
+# Each line must contain a sinlge wiki page title.
+# Lines starting with '#' are comments. 
+
+# Example from the Eclipse project wiki:
+
+WTP Tomcat FAQ
+WTP UI Consistency
+WTP UI Walkthroughs

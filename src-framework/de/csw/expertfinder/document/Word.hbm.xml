@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="de.csw.expertfinder.document">
+
+  <class name="Word">
+
+  	<id name="id" type="java.lang.Long">
+  		<generator class="native" />
+  	</id>
+  	
+  	<discriminator column="isNoun" type="boolean" />
+
+  	<property name="word" />
+  	<property name="wordStem" />
+  	<property name="startPos" />
+  	<property name="endPos" />
+
+  	<many-to-one
+  		name="revisionCreated"
+  		column="id_revision_created"
+  	/>
+ 
+  	<many-to-one
+  		name="revisionDeleted"
+  		column="id_revision_deleted"
+  	/>
+ 
+  	<many-to-one
+  		name="concept"
+  		column="id_concept"
+  	/>
+  	<many-to-one
+  		name="section"
+  		column="id_section"
+  	/>
+  	
+  	<subclass name="Noun" discriminator-value="true" />
+  	
+  </class>
+</hibernate-mapping>

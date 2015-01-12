@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="de.csw.expertfinder.document">
+  <class name="Document">
+  
+  	<id name="id" type="java.lang.Long" />
+  	
+  	<property name="title" />
+  	
+  	<many-to-one
+  		name="redirectsTo"
+  		column="redirects_to"
+  	/>
+  	
+  	<set name="concepts"
+ 	     table="document_has_concept">
+ 	    <key column="id_document" />
+ 		<many-to-many column="id_concept"
+ 		              class="Concept" />
+ 	</set>
+ 	
+  	<set name="categories"
+ 	     table="document_has_category">
+ 	    <key column="id_document" />
+ 	    <one-to-many class="DocumentCategory" />
+ 	</set>
+ 	
+  </class>
+</hibernate-mapping>

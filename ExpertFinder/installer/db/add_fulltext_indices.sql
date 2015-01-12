@@ -1,0 +1,1 @@
+ALTER TABLE `openthesaurus`.`wikipedia_pages` ADD FULLTEXT INDEX wp_pages_fulltext(`title`);

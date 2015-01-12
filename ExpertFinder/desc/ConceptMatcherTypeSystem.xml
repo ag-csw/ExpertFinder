@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+<name>ConceptMatcherTypeSystem</name>
+<description></description>
+<version>1.0</version>
+<vendor></vendor>
+
+<types>
+<typeDescription>
+<name>de.csw.expertfinder.uima.types.OntologyConcept</name>
+<description>Denotes an ontological concept</description>
+<supertypeName>uima.tcas.Annotation</supertypeName>
+<features>
+<featureDescription>
+<name>conceptURIs</name>
+<description/>
+<rangeTypeName>uima.cas.StringArray</rangeTypeName>
+<multipleReferencesAllowed>true</multipleReferencesAllowed>
+</featureDescription>
+</features>
+</typeDescription>
+</types>
+
+</typeSystemDescription>
+

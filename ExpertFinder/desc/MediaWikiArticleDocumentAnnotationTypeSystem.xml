@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+<name>MediaWikiArticleDocumentAnnotationTypeSystem</name>
+<description></description>
+<version>1.0</version>
+<vendor></vendor>
+<types>
+<typeDescription>
+<name>de.csw.expertfinder.mediawiki.uima.types.ArticleRevisionInfo</name>
+<description>Information about the entire document, which in this case represents a revision of a MediaWiki article.</description>
+<supertypeName>uima.tcas.DocumentAnnotation</supertypeName>
+<features>
+<featureDescription>
+<name>authorName</name>
+<description></description>
+<rangeTypeName>uima.cas.String</rangeTypeName>
+</featureDescription>
+<featureDescription>
+<name>articleId</name>
+<description></description>
+<rangeTypeName>uima.cas.Integer</rangeTypeName>
+</featureDescription>
+<featureDescription>
+<name>revisionId</name>
+<description></description>
+<rangeTypeName>uima.cas.Integer</rangeTypeName>
+</featureDescription>
+<featureDescription>
+<name>timestamp</name>
+<description>The timestamp of when the revision was created.</description>
+<rangeTypeName>uima.cas.Long</rangeTypeName>
+</featureDescription>
+<featureDescription>
+<name>title</name>
+<description>The article/document/page's title</description>
+<rangeTypeName>uima.cas.String</rangeTypeName>
+</featureDescription>
+<featureDescription>
+<name>categories</name>
+<description>All categories this document (revision) belongs to.</description>
+<rangeTypeName>uima.cas.StringArray</rangeTypeName>
+</featureDescription>
+</features>
+</typeDescription>
+</types>
+</typeSystemDescription>

@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="ExpertFinder">
+    <property environment="env"/>
+    <property name="UIMA_HOME" value="../../../../Applications/apache-uima"/>
+    <property name="TESTNG_HOME" value="../../../../Applications/eclipse_galileo/plugins/org.testng.eclipse_5.9.0.5"/>
+    <property name="ECLIPSE_HOME" value="../../../../Applications/eclipse_galileo"/>
+    <property name="ExpertFinder.location" value="../ExpertFinder"/>
+    <property name="env_var:UIMA_HOME" value="env.UIMA_HOME"/>
+    <property name="OpenNLP 1.4.3.location" value="../OpenNLP 1.4.3"/>
+    <!--property name="SemMF.location" value="../SemMF"/-->
+    <!--property name="SimPack.location" value="../SimPack"/-->
+    <property name="jWordSplitter.location" value="../jWordSplitter"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <path id="JUnit 3.libraryclasspath">
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.junit_3.8.2.v20090203-1005/junit.jar"/>
+    </path>
+    <path id="JUnit 4.libraryclasspath">
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.junit4_4.5.0.v20090423/junit.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.hamcrest.core_1.1.0.v20090501071000.jar"/>
+    </path>
+    <path id="OpenNLP 1.4.3.classpath">
+        <pathelement location="${OpenNLP 1.4.3.location}/classes"/>
+        <pathelement location="${OpenNLP 1.4.3.location}/lib/ant.jar"/>
+        <pathelement location="${OpenNLP 1.4.3.location}/lib/jakarta-ant-optional.jar"/>
+        <pathelement location="${OpenNLP 1.4.3.location}/lib/jwnl-1.3.3.jar"/>
+        <pathelement location="${OpenNLP 1.4.3.location}/lib/maxent-2.5.2.jar"/>
+        <pathelement location="${OpenNLP 1.4.3.location}/lib/trove.jar"/>
+        <path refid="JUnit 4.libraryclasspath"/>
+    </path>
+    <path id="jWordSplitter.classpath">
+        <pathelement location="${jWordSplitter.location}/bin"/>
+        <path refid="JUnit 3.libraryclasspath"/>
+    </path>
+    <!--path id="SimPack.classpath">
+        <pathelement location="${SimPack.location}/bin"/>
+        <pathelement location="${SimPack.location}/lib/alignapi/align.jar"/>
+        <pathelement location="${SimPack.location}/lib/alignapi/alignsvc.jar"/>
+        <pathelement location="${SimPack.location}/lib/alignapi/alignwn.jar"/>
+        <pathelement location="${SimPack.location}/lib/alignapi/procalign.jar"/>
+        <pathelement location="${SimPack.location}/lib/arq/antlr-2.7.5.jar"/>
+        <pathelement location="${SimPack.location}/lib/arq/arq.jar"/>
+        <pathelement location="${SimPack.location}/lib/arq/commons-logging.jar"/>
+        <pathelement location="${SimPack.location}/lib/arq/concurrent.jar"/>
+        <pathelement location="${SimPack.location}/lib/arq/icu4j_3_4.jar"/>
+        <pathelement location="${SimPack.location}/lib/arq/iri.jar"/>
+        <pathelement location="${SimPack.location}/lib/arq/jena.jar"/>
+        <pathelement location="${SimPack.location}/lib/arq/jenatest.jar"/>
+        <pathelement location="${SimPack.location}/lib/arq/json.jar"/>
+        <pathelement location="${SimPack.location}/lib/arq/junit.jar"/>
+        <pathelement location="${SimPack.location}/lib/arq/log4j-1.2.12.jar"/>
+        <pathelement location="${SimPack.location}/lib/arq/stax-api-1.0.jar"/>
+        <pathelement location="${SimPack.location}/lib/arq/wstx-asl-2.8.jar"/>
+        <pathelement location="${SimPack.location}/lib/arq/xercesImpl.jar"/>
+        <pathelement location="${SimPack.location}/lib/arq/xml-apis.jar"/>
+        <pathelement location="${SimPack.location}/lib/cobertura/cobertura-1.7.jar"/>
+        <pathelement location="${SimPack.location}/lib/colt/colt.jar"/>
+        <pathelement location="${SimPack.location}/lib/eclipse/org.eclipse.core.resources_3.1.0.jar"/>
+        <pathelement location="${SimPack.location}/lib/eclipse/org.eclipse.core.runtime_3.1.1.jar"/>
+        <pathelement location="${SimPack.location}/lib/eclipse/org.eclipse.jdt.core_3.1.1.jar"/>
+        <pathelement location="${SimPack.location}/lib/eclipse/org.eclipse.osgi_3.1.1.jar"/>
+        <pathelement location="${SimPack.location}/lib/famix/famix.jar"/>
+        <pathelement location="${SimPack.location}/lib/gub/gub.jar"/>
+        <pathelement location="${SimPack.location}/lib/jena/antlr-2.7.5.jar"/>
+        <pathelement location="${SimPack.location}/lib/jena/arq.jar"/>
+        <pathelement location="${SimPack.location}/lib/jena/commons-logging.jar"/>
+        <pathelement location="${SimPack.location}/lib/jena/concurrent.jar"/>
+        <pathelement location="${SimPack.location}/lib/jena/icu4j_3_4.jar"/>
+        <pathelement location="${SimPack.location}/lib/jena/iri.jar"/>
+        <pathelement location="${SimPack.location}/lib/jena/jena.jar"/>
+        <pathelement location="${SimPack.location}/lib/jena/jenatest.jar"/>
+        <pathelement location="${SimPack.location}/lib/jena/json.jar"/>
+        <pathelement location="${SimPack.location}/lib/jena/junit.jar"/>
+        <pathelement location="${SimPack.location}/lib/jena/log4j-1.2.12.jar"/>
+        <pathelement location="${SimPack.location}/lib/jena/stax-api-1.0.jar"/>
+        <pathelement location="${SimPack.location}/lib/jena/xercesImpl.jar"/>
+        <pathelement location="${SimPack.location}/lib/jena/xml-apis.jar"/>
+        <pathelement location="${SimPack.location}/lib/jgrapht/jgrapht-0.6.0.jar"/>
+        <pathelement location="${SimPack.location}/lib/junit/junit-4.1.jar"/>
+        <pathelement location="${SimPack.location}/lib/lucene/lucene-core-2.0.1-dev.jar"/>
+        <pathelement location="${SimPack.location}/lib/lucene/lucene-similarity-2.0.1-dev.jar"/>
+        <pathelement location="${SimPack.location}/lib/lucene/lucene-snowball-2.0.1-dev.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/axis/axis-ant.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/axis/axis.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/axis/commons-discovery.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/axis/commons-httpclient-3.0-alpha1.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/axis/commons-logging.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/axis/jaxrpc.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/axis/log4j-1.2.8.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/axis/saaj.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/axis/wsdl4j.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/jena/antlr-2.7.5.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/jena/arq.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/jena/commons-logging.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/jena/concurrent.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/jena/icu4j_3_4.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/jena/jakarta-oro-2.0.8.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/jena/jena.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/jena/junit.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/jena/log4j-1.2.12.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/jena/stax-1.1.1-dev.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/jena/stax-api-1.0.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/jena/xercesImpl.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/jena/xml-apis.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/pellet/aterm-java-1.6.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/pellet/pellet.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/xsdlib/relaxngDatatype.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/xsdlib/xsdlib.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/owl-s.jar"/>
+        <pathelement location="${SimPack.location}/lib/owl-s/upnp.jar"/>
+        <pathelement location="${SimPack.location}/lib/owlsmx/owlapi/abstractparser.jar"/>
+        <pathelement location="${SimPack.location}/lib/owlsmx/owlapi/antlr.jar"/>
+        <pathelement location="${SimPack.location}/lib/owlsmx/owlapi/api.jar"/>
+        <pathelement location="${SimPack.location}/lib/owlsmx/owlapi/dig.jar"/>
+        <pathelement location="${SimPack.location}/lib/owlsmx/owlapi/examples.jar"/>
+        <pathelement location="${SimPack.location}/lib/owlsmx/owlapi/getopt.jar"/>
+        <pathelement location="${SimPack.location}/lib/owlsmx/owlapi/impl.jar"/>
+        <pathelement location="${SimPack.location}/lib/owlsmx/owlapi/inference.jar"/>
+        <pathelement location="${SimPack.location}/lib/owlsmx/owlapi/io.jar"/>
+        <pathelement location="${SimPack.location}/lib/owlsmx/owlapi/log4j.jar"/>
+        <pathelement location="${SimPack.location}/lib/owlsmx/owlapi/owl-servlet.jar"/>
+        <pathelement location="${SimPack.location}/lib/owlsmx/owlapi/owltest.jar"/>
+        <pathelement location="${SimPack.location}/lib/owlsmx/owlapi/rdfapi.jar"/>
+        <pathelement location="${SimPack.location}/lib/owlsmx/owlapi/rdfparser.jar"/>
+        <pathelement location="${SimPack.location}/lib/owlsmx/owlapi/ui.jar"/>
+        <pathelement location="${SimPack.location}/lib/owlsmx/owlapi/validation_test.jar"/>
+        <pathelement location="${SimPack.location}/lib/owlsmx/owlapi/validation.jar"/>
+        <pathelement location="${SimPack.location}/lib/owlsmx/owlsmx.jar"/>
+        <pathelement location="${SimPack.location}/lib/secondstring/cls.jar"/>
+        <pathelement location="${SimPack.location}/lib/secondstring/jwf.jar"/>
+        <pathelement location="${SimPack.location}/lib/secondstring/secondstring-041206.jar"/>
+        <pathelement location="${SimPack.location}/lib/simmetrics/simmetrics-1.3.jar"/>
+        <pathelement location="${SimPack.location}/lib/taverna/jdom-1.0.jar"/>
+        <pathelement location="${SimPack.location}/lib/taverna/taverna-workbench-1.4.jar"/>
+    </path-->
+    <!--path id="SemMF.classpath">
+        <pathelement location="${SemMF.location}/bin"/>
+        <pathelement location="${ExpertFinder.location}/lib/antlr-2.7.5.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/antlr-2.7.6.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/arq-extra.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/arq.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/commons-codec-1.3.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/commons-collections-3.2.1.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/commons-lang-2.4.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/commons-logging-1.1.1.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/concurrent.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/dom4j-1.6.1.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/hibernate3.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/httpclient-4.0-beta2.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/httpcore-4.0.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/httpcore-nio-4.0.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/httpmime-4.0-beta2.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/icu4j_3_4.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/iri.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/javassist-3.9.0.GA.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/jena.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/jenatest.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/jlibdiff.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/json.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/jta-1.1.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/junit.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/jutil-1.4.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/jwpl_0.45beta.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/log4j-1.2.12.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/log4j-1.2.15.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/lucene-core-2.3.1.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/lucene-core-2.4.1.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/mysql-connector-java-5.1.6-bin.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/org-netbeans-modules-diff.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/org-openide-util.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/slf4j-api-1.5.8.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/slf4j-log4j12-1.5.8.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/sqlitejdbc-v054.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/stax-api-1.0.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/util.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/VDiff.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/wstx-asl-3.0.0.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/xercesImpl.jar"/>
+        <pathelement location="${ExpertFinder.location}/lib/xml-apis.jar"/>
+    </path-->
+    <path id="Standard Widget Toolkit (SWT).libraryclasspath"/>
+    <path id="ExpertFinder.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="${UIMA_HOME}/lib/uima-core.jar"/>
+        <pathelement location="lib/httpclient-4.0-beta2.jar"/>
+        <pathelement location="lib/httpcore-4.0.jar"/>
+        <pathelement location="lib/httpcore-nio-4.0.jar"/>
+        <pathelement location="lib/httpmime-4.0-beta2.jar"/>
+        <pathelement location="lib/sqlitejdbc-v054.jar"/>
+        <pathelement location="lib/util.jar"/>
+        <pathelement location="lib/org-netbeans-modules-diff.jar"/>
+        <pathelement location="lib/org-openide-util.jar"/>
+        <pathelement location="lib/jlibdiff.jar"/>
+        <pathelement location="lib/VDiff.jar"/>
+        <pathelement location="lib/antlr-2.7.5.jar"/>
+        <pathelement location="lib/arq-extra.jar"/>
+        <pathelement location="lib/arq.jar"/>
+        <pathelement location="lib/commons-logging-1.1.1.jar"/>
+        <pathelement location="lib/icu4j_3_4.jar"/>
+        <pathelement location="lib/iri.jar"/>
+        <pathelement location="lib/jena.jar"/>
+        <pathelement location="lib/jenatest.jar"/>
+        <pathelement location="lib/json.jar"/>
+        <pathelement location="lib/junit.jar"/>
+        <pathelement location="lib/xercesImpl.jar"/>
+        <pathelement location="lib/xml-apis.jar"/>
+        <pathelement location="lib/commons-lang-2.4.jar"/>
+        <pathelement location="lib/lucene-core-2.4.1.jar"/>
+        <pathelement location="lib/log4j-1.2.15.jar"/>
+        <pathelement location="lib/mysql-connector-java-5.1.6-bin.jar"/>
+        <pathelement location="lib/commons-codec-1.3.jar"/>
+        <pathelement location="lib/jwpl_0.45beta.jar"/>
+        <pathelement location="lib/jutil-1.4.jar"/>
+        <pathelement location="lib/commons-collections-3.2.1.jar"/>
+        <pathelement location="lib/jung/collections-generic-4.01.jar"/>
+        <pathelement location="lib/jung/colt-1.2.0.jar"/>
+        <pathelement location="lib/jung/concurrent-1.3.4.jar"/>
+        <pathelement location="lib/jung/jung-3d-2.0.jar"/>
+        <pathelement location="lib/jung/jung-3d-demos-2.0.jar"/>
+        <pathelement location="lib/jung/jung-algorithms-2.0.jar"/>
+        <pathelement location="lib/jung/jung-api-2.0-tests.jar"/>
+        <pathelement location="lib/jung/jung-api-2.0.jar"/>
+        <pathelement location="lib/jung/jung-graph-impl-2.0.jar"/>
+        <pathelement location="lib/jung/jung-io-2.0.jar"/>
+        <pathelement location="lib/jung/jung-jai-2.0.jar"/>
+        <pathelement location="lib/jung/jung-jai-samples-2.0.jar"/>
+        <pathelement location="lib/jung/jung-samples-2.0.jar"/>
+        <pathelement location="lib/jung/jung-visualization-2.0.jar"/>
+        <pathelement location="lib/jung/stax-api-1.0.1.jar"/>
+        <pathelement location="lib/jung/wstx-asl-3.2.6.jar"/>
+        <pathelement location="lib/antlr-2.7.6.jar"/>
+        <pathelement location="lib/dom4j-1.6.1.jar"/>
+        <pathelement location="lib/hibernate3.jar"/>
+        <pathelement location="lib/javassist-3.9.0.GA.jar"/>
+        <pathelement location="lib/jta-1.1.jar"/>
+        <pathelement location="lib/slf4j-api-1.5.8.jar"/>
+        <pathelement location="lib/slf4j-log4j12-1.5.8.jar"/>
+        <pathelement location="lib/morphadorner.jar"/>
+        <path refid="JUnit 3.libraryclasspath"/>
+        <path refid="OpenNLP 1.4.3.classpath"/>
+        <pathelement location="${UIMA_HOME}/lib/uima-document-annotation.jar"/>
+        <pathelement location="${UIMA_HOME}/lib/uima-tools.jar"/>
+        <path refid="jWordSplitter.classpath"/>
+        <pathelement location="${TESTNG_HOME}/lib/testng-jdk15.jar"/>
+        <!--path refid="SimPack.classpath"/-->
+        <!--path refid="SemMF.classpath"/-->
+        <pathelement location="${UIMA_HOME}/lib/uima-cpe.jar"/>
+        <path refid="Standard Widget Toolkit (SWT).libraryclasspath"/>
+    </path>
+    <path id="run.UIMA CPE GUI.classpath">
+        <pathelement location="${UIMA_HOME}/lib/uima-cpe.jar"/>
+        <path refid="ExpertFinder.classpath"/>
+    </path>
+    <path id="uimaj-examples.classpath">
+        <pathelement location="${uimaj-examples.location}/bin"/>
+        <pathelement location="${UIMA_HOME}/lib/uima-core.jar"/>
+        <pathelement location="${UIMA_HOME}/lib/uima-document-annotation.jar"/>
+        <pathelement location="${UIMA_HOME}/lib/uima-cpe.jar"/>
+        <pathelement location="${UIMA_HOME}/lib/uima-tools.jar"/>
+        <pathelement location="${UIMA_HOME}/lib/uima-adapter-vinci.jar"/>
+        <pathelement location="${UIMA_HOME}/lib/uima-adapter-soap.jar"/>
+        <pathelement location="${UIMA_HOME}/lib/jVinci.jar"/>
+        <pathelement location="${uimaj-examples.location}/resources"/>
+    </path>
+    <path id="run.UIMA CAS Visual Debugger.classpath">
+        <path refid="ExpertFinder.classpath"/>
+        <pathelement location="${UIMA_HOME}/lib/uima-core.jar"/>
+        <pathelement location="lib/httpclient-4.0-beta2.jar"/>
+        <pathelement location="lib/httpcore-4.0.jar"/>
+        <pathelement location="lib/httpcore-nio-4.0.jar"/>
+        <pathelement location="lib/httpmime-4.0-beta2.jar"/>
+        <pathelement location="lib/sqlitejdbc-v054.jar"/>
+        <pathelement location="lib/util.jar"/>
+        <pathelement location="lib/org-netbeans-modules-diff.jar"/>
+        <pathelement location="lib/org-openide-util.jar"/>
+        <pathelement location="lib/jlibdiff.jar"/>
+        <pathelement location="lib/VDiff.jar"/>
+        <pathelement location="lib/antlr-2.7.5.jar"/>
+        <pathelement location="lib/arq-extra.jar"/>
+        <pathelement location="lib/arq.jar"/>
+        <pathelement location="lib/commons-logging-1.1.1.jar"/>
+        <pathelement location="lib/concurrent.jar"/>
+        <pathelement location="lib/icu4j_3_4.jar"/>
+        <pathelement location="lib/iri.jar"/>
+        <pathelement location="lib/jena.jar"/>
+        <pathelement location="lib/jenatest.jar"/>
+        <pathelement location="lib/json.jar"/>
+        <pathelement location="lib/junit.jar"/>
+        <pathelement location="lib/stax-api-1.0.jar"/>
+        <pathelement location="lib/wstx-asl-3.0.0.jar"/>
+        <pathelement location="lib/xercesImpl.jar"/>
+        <pathelement location="lib/xml-apis.jar"/>
+        <pathelement location="lib/commons-lang-2.4.jar"/>
+        <pathelement location="lib/lucene-core-2.4.1.jar"/>
+        <pathelement location="lib/log4j-1.2.15.jar"/>
+        <pathelement location="lib/mysql-connector-java-5.1.6-bin.jar"/>
+        <pathelement location="lib/commons-codec-1.3.jar"/>
+        <pathelement location="lib/jwpl_0.45beta.jar"/>
+        <pathelement location="lib/jutil-1.4.jar"/>
+        <path refid="JUnit 3.libraryclasspath"/>
+        <path refid="OpenNLP 1.4.3.classpath"/>
+        <pathelement location="${UIMA_HOME}/lib/uima-document-annotation.jar"/>
+        <pathelement location="${UIMA_HOME}/lib/uima-tools.jar"/>
+        <path refid="jWordSplitter.classpath"/>
+        <pathelement location="${OpenNLP 1.4.3.location}/lib/jwnl-1.3.3.jar"/>
+        <pathelement location="${OpenNLP 1.4.3.location}/lib/maxent-2.5.2.jar"/>
+        <pathelement location="${OpenNLP 1.4.3.location}/lib/trove.jar"/>
+        <path refid="uimaj-examples.classpath"/>
+    </path>
+    <path id="run.UIMA CAS Visual Debugger.bootclasspath">
+        <fileset dir="${java.home}/lib" includes="*.jar"/>
+        <fileset dir="${java.home}/lib/ext" includes="*.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src-framework">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src-diff">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src-wikipedia">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src-misc">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src-test">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall">
+        <ant antfile="${OpenNLP 1.4.3.location}/build2.xml" dir="${OpenNLP 1.4.3.location}" inheritAll="false" target="clean"/>
+        <!--ant antfile="${SemMF.location}/build2.xml" dir="${SemMF.location}" inheritAll="false" target="clean"/-->
+        <!--ant antfile="${SimPack.location}/build2.xml" dir="${SimPack.location}" inheritAll="false" target="clean"/-->
+        <ant antfile="${jWordSplitter.location}/build2.xml" dir="${jWordSplitter.location}" inheritAll="false" target="clean"/>
+    </target>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects">
+        <ant antfile="${OpenNLP 1.4.3.location}/build2.xml" dir="${OpenNLP 1.4.3.location}" inheritAll="false" target="build-project">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+        <!--ant antfile="${SemMF.location}/build2.xml" dir="${SemMF.location}" inheritAll="false" target="build-project">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant-->
+        <!--ant antfile="${SimPack.location}/build2.xml" dir="${SimPack.location}" inheritAll="false" target="build-project">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant-->
+        <ant antfile="${jWordSplitter.location}/build.xml" dir="${jWordSplitter.location}" inheritAll="false" target="build-project">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+    </target>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="src-framework"/>
+            <classpath refid="ExpertFinder.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="src-diff"/>
+            <classpath refid="ExpertFinder.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="src-wikipedia"/>
+            <classpath refid="ExpertFinder.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="src-misc"/>
+            <classpath refid="ExpertFinder.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="src-test"/>
+            <classpath refid="ExpertFinder.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+	<target name="copy-resources" description="copy the resources directory into the bin directory">
+        <copy includeemptydirs="false" todir="bin/resources">
+            <fileset dir="resources" />
+        </copy>
+	</target>
+	<target name="copy-conf" description="copy the conf directory into the bin directory">
+        <copy includeemptydirs="false" todir="bin/conf">
+            <fileset dir="conf" />
+        </copy>
+	</target>
+    <target name="AddNodeDemo">
+        <java classname="edu.uci.ics.jung.samples.AddNodeDemo" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="AnimatingAddNodeDemo">
+        <java classname="edu.uci.ics.jung.samples.AnimatingAddNodeDemo" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="BalloonLayoutDemo">
+        <java classname="edu.uci.ics.jung.samples.BalloonLayoutDemo" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="ClusteringDemo">
+        <java classname="edu.uci.ics.jung.samples.ClusteringDemo" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="DBPediaPropertyViewer">
+        <java classname="misc.sparqlclient.test.DBPediaPropertyViewer" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="DemoController">
+        <java classname="de.csw.sparql.gui.DemoController" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="GermanTokenizerAndStemmer">
+        <java classname="de.csw.expertfinder.uima.GermanTokenizerAndStemmer" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="HttpSparqlClient">
+        <java classname="de.csw.sparql.HttpSparqlClient" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="IdsToNames">
+        <java classname="misc.pagepicker.IdsToNames" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="InternalFrameSatelliteViewDemo">
+        <java classname="edu.uci.ics.jung.samples.InternalFrameSatelliteViewDemo" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="JaccardMetric">
+        <java classname="de.csw.expertfinder.diff.sentencealignment.jaccard.JaccardMetric" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="Levenshtein">
+        <java classname="de.csw.expertfinder.tokenization.Levenshtein" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="NounAndAnchorSentenceAligner">
+        <java classname="de.csw.expertfinder.diff.sentencealignment.nounandanchor.NounAndAnchorSentenceAligner" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="OntologyEnhancer">
+        <java classname="de.csw.expertfinder.mediawiki.ontology.OntologyEnhancer" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="OpenThesaurus">
+        <java classname="de.csw.thesaurus.OpenThesaurus" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="OpenThesaurusNounFinder">
+        <java classname="misc.openthesaurus.OpenThesaurusNounFinder" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="OpenThesaurusStemmer">
+        <java classname="misc.openthesaurus.OpenThesaurusStemmer" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="PagePicker">
+        <java classname="misc.pagepicker.PagePicker" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="PersistenceStoreFacade">
+        <java classname="de.csw.expertfinder.test.persistence.PersistenceStoreFacade" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="PositionInsensitiveDiff">
+        <java classname="de.csw.expertfinder.diff.PositionInsensitiveDiff" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="ShowLayouts">
+        <java classname="edu.uci.ics.jung.samples.ShowLayouts" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="SimpleDebugServer">
+        <java classname="misc.sparqlclient.test.SimpleDebugServer" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="StopWatch">
+        <java classname="de.csw.expertfinder.test.util.StopWatch" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="Test">
+        <java classname="de.csw.expertfinder.hibernate.Test" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="WikipediaAPI">
+        <java classname="de.csw.expertfinder.mediawiki.api.MediaWikiAPI" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="WikipediaArticleCollectionReader">
+        <java classname="de.csw.expertfinder.mediawiki.uima.MediaWikiArticleCollectionReader" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="WikipediaArticleEditsByAuthor">
+        <java classname="de.csw.expertfinder.visualization.WikipediaArticleEditsByAuthor" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="WikipediaCPERunner">
+        <java classname="de.csw.expertfinder.mediawiki.uima.deploy.MediaWikiCPERunner" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="MediaWikiSectionDetector">
+        <java classname="de.csw.expertfinder.mediawiki.uima.MediaWikiSectionDetector" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+    <target name="UIMA CPE GUI">
+        <java classname="org.apache.uima.tools.cpm.CpmFrame" failonerror="true" fork="yes">
+            <env key="LD_LIBRARY_PATH" value="${env_var:UIMA_HOME}/uimacpp/lib:${env_var:UIMA_HOME}/uimacpp/examples/tutorial/src:${env_var:LD_LIBRARY_PATH}"/>
+            <env key="DYLD_LIBRARY_PATH" value="${env_var:UIMA_HOME}/uimacpp/lib:${env_var:UIMA_HOME}/uimacpp/examples/tutorial/src:${env_var:DYLD_LIBRARY_PATH}"/>
+            <env key="PATH" value="${env_var:UIMA_HOME}/uimacpp/bin;${env_var:UIMA_HOME}/uimacpp/examples/tutorial/src;${env_var:PATH}"/>
+            <jvmarg line="&quot;-Djava.util.logging.config.file=${env_var:UIMA_HOME}/config/Logger.properties&quot; -DVNS_HOST=localhost -XX:+HeapDumpOnOutOfMemoryError"/>
+            <classpath refid="run.UIMA CPE GUI.classpath"/>
+        </java>
+    </target>
+    <target name="UIMA CAS Visual Debugger">
+        <java classname="org.apache.uima.tools.cvd.CVD" failonerror="true" fork="yes">
+            <env key="LD_LIBRARY_PATH" value="${env_var:UIMA_HOME}/uimacpp/lib:${env_var:UIMA_HOME}/uimacpp/examples/tutorial/src:${env_var:LD_LIBRARY_PATH}"/>
+            <env key="DYLD_LIBRARY_PATH" value="${env_var:UIMA_HOME}/uimacpp/lib:${env_var:UIMA_HOME}/uimacpp/examples/tutorial/src:${env_var:DYLD_LIBRARY_PATH}"/>
+            <env key="PATH" value="${env_var:UIMA_HOME}/uimacpp/bin;${env_var:UIMA_HOME}/uimacpp/examples/tutorial/src;${env_var:PATH}"/>
+            <jvmarg line="&quot;-Duima.tools.cvd.manpath=${env_var:UIMA_HOME}/docs/html&quot; &quot;-Djava.util.logging.config.file=${env_var:UIMA_HOME}/config/Logger.properties&quot; -DVNS_HOST=localhost"/>
+            <classpath refid="run.UIMA CAS Visual Debugger.classpath"/>
+            <bootclasspath>
+                <path refid="run.UIMA CAS Visual Debugger.bootclasspath"/>
+            </bootclasspath>
+        </java>
+    </target>
+    <target name="CategoryConsolidator">
+        <java classname="de.csw.expertfinder.topics.eclipsewiki.CategoryConsolidator" failonerror="true" fork="yes">
+            <classpath refid="ExpertFinder.classpath"/>
+        </java>
+    </target>
+</project>

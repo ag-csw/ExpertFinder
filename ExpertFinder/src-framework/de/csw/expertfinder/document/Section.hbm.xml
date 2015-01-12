@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="de.csw.expertfinder.document">
+  <class name="Section">
+  	<id name="id" type="java.lang.Long">
+  		<generator class="native" />
+  	</id>
+  	
+  	<property name="title" />
+  	<property name="level" />
+  	<property name="startPos" />
+  	<property name="endPos" />
+  	
+  	<many-to-one
+  		name="parentSection"
+  		column="id_parent_section"
+  	/>
+ 
+  	<many-to-one
+  		name="revisionCreated"
+  		column="id_revision_created"
+  	/>
+ 
+  	<many-to-one
+  		name="revisionDeleted"
+  		column="id_revision_deleted"
+  	/>
+  	 
+ 	<set name="concepts"
+ 	     table="section_has_concept"
+ 	     cascade="save-update">
+ 	    <key column="id_section" />
+ 		<one-to-many class="SectionConcept" />
+ 	</set>
+ 	
+  </class>
+</hibernate-mapping>

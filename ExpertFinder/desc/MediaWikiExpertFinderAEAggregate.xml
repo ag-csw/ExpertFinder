@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+<frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+<primitive>false</primitive>
+<delegateAnalysisEngineSpecifiers>
+<delegateAnalysisEngine key="GATERegexSentenceSplitter">
+<import location="GATERegexSentenceSplitter.xml"/>
+</delegateAnalysisEngine>
+<delegateAnalysisEngine key="MediaWikiSectionDetector">
+<import location="MediaWikiSectionDetector.xml"/>
+</delegateAnalysisEngine>
+<delegateAnalysisEngine key="EnglishTokenizer">
+<import location="EnglishTokenizer.xml"/>
+</delegateAnalysisEngine>
+<delegateAnalysisEngine key="FastMediaWikiMarkupDetector">
+<import location="FastMediaWikiMarkupDetector.xml"/>
+</delegateAnalysisEngine>
+</delegateAnalysisEngineSpecifiers>
+<analysisEngineMetaData>
+<name>MediaWikiExpertFinderAEAggregate</name>
+<description/>
+<version>1.0</version>
+<vendor/>
+<configurationParameters searchStrategy="language_fallback"/>
+<configurationParameterSettings/>
+<flowConstraints>
+<fixedFlow>
+<node>GATERegexSentenceSplitter</node>
+<node>EnglishTokenizer</node>
+<node>MediaWikiSectionDetector</node>
+<node>FastMediaWikiMarkupDetector</node>
+</fixedFlow>
+</flowConstraints>
+<typePriorities/>
+<fsIndexCollection/>
+<capabilities>
+<capability>
+<inputs>
+<type allAnnotatorFeatures="true">de.csw.expertfinder.mediawiki.uima.types.ArticleRevisionInfo</type>
+</inputs>
+<outputs>
+<type allAnnotatorFeatures="true">de.csw.expertfinder.mediawiki.uima.types.ArticleRevisionInfo</type>
+</outputs>
+<languagesSupported/>
+</capability>
+</capabilities>
+<operationalProperties>
+<modifiesCas>true</modifiesCas>
+<multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+<outputsNewCASes>false</outputsNewCASes>
+</operationalProperties>
+</analysisEngineMetaData>
+<resourceManagerConfiguration/>
+</analysisEngineDescription>

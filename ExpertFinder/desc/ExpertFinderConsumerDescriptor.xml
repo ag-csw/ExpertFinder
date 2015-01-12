@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<casConsumerDescription xmlns="http://uima.apache.org/resourceSpecifier">
+<frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+<implementationName>de.csw.expertfinder.mediawiki.uima.MediaWikiExpertFinderConsumer</implementationName>
+<processingResourceMetaData>
+<name>ExpertFinderConsumerDescriptor</name>
+<description></description>
+<version>1.0</version>
+<vendor></vendor>
+<configurationParameters/>
+<configurationParameterSettings/>
+<typeSystemDescription>
+<imports>
+<import location="MediaWikiArticleDocumentAnnotationTypeSystem.xml"/>
+<import location="ConceptMatcherTypeSystem.xml"/>
+<import location="GATERegexSentenceSplitterTypeSystem.xml"/>
+<import location="GermanStemmerTypeSystem.xml"/>
+<import location="ParagraphDetectorTypeSystem.xml"/>
+<import location="MediaWikiMarkupDetectorTypeSystem.xml"/>
+</imports>
+</typeSystemDescription>
+<typePriorities/>
+<fsIndexCollection/>
+<capabilities>
+<capability>
+<inputs>
+<type allAnnotatorFeatures="true">de.csw.expertfinder.mediawiki.uima.types.ArticleRevisionInfo</type>
+<type allAnnotatorFeatures="true">de.csw.expertfinder.uima.types.Word</type>
+<type allAnnotatorFeatures="true">de.csw.expertfinder.mediawiki.uima.types.markup.Tag</type>
+<type allAnnotatorFeatures="true">de.csw.expertfinder.uima.types.Sentence</type>
+<type allAnnotatorFeatures="true">de.csw.expertfinder.mediawiki.uima.types.markup.Section</type>
+<type allAnnotatorFeatures="true">de.csw.expertfinder.mediawiki.uima.types.markup.Reference</type>
+<type allAnnotatorFeatures="true">de.csw.expertfinder.mediawiki.uima.types.markup.Paragraph</type>
+<type allAnnotatorFeatures="true">de.csw.expertfinder.uima.types.OntologyConcept</type>
+<type allAnnotatorFeatures="true">de.csw.expertfinder.uima.types.Noun</type>
+<type allAnnotatorFeatures="true">de.csw.expertfinder.mediawiki.uima.types.markup.MathFormula</type>
+<type allAnnotatorFeatures="true">de.csw.expertfinder.mediawiki.uima.types.markup.LanguageLink</type>
+<type allAnnotatorFeatures="true">de.csw.expertfinder.mediawiki.uima.types.markup.InternalLink</type>
+<type allAnnotatorFeatures="true">de.csw.expertfinder.mediawiki.uima.types.markup.InfoboxFact</type>
+<type allAnnotatorFeatures="true">de.csw.expertfinder.mediawiki.uima.types.markup.ExternalLink</type>
+</inputs>
+<outputs/>
+<languagesSupported/>
+</capability>
+</capabilities>
+<operationalProperties>
+<modifiesCas>false</modifiesCas>
+<multipleDeploymentAllowed>false</multipleDeploymentAllowed>
+<outputsNewCASes>false</outputsNewCASes>
+</operationalProperties>
+</processingResourceMetaData>
+<resourceManagerConfiguration/>
+</casConsumerDescription>

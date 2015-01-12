@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns="http://www.ag-csw.de/ontologies/test#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xml:base="http://www.ag-csw.de/ontologies/test">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="C1111">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="C111"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="B22">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="B2"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="C1">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="C"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="A">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Test"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#C111">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="C11"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="A21">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="A2"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#B2">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="B"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#C">
+    <rdfs:subClassOf rdf:resource="#Test"/>
+  </owl:Class>
+  <owl:Class rdf:ID="B1">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#B"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="B211">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="B21"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#A2">
+    <rdfs:subClassOf rdf:resource="#A"/>
+  </owl:Class>
+  <owl:Class rdf:ID="A111">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="A11"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#C11">
+    <rdfs:subClassOf rdf:resource="#C1"/>
+  </owl:Class>
+  <owl:Class rdf:about="#B21">
+    <rdfs:subClassOf rdf:resource="#B2"/>
+  </owl:Class>
+  <owl:Class rdf:about="#A11">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="A1"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="B2111">
+    <rdfs:subClassOf rdf:resource="#B211"/>
+  </owl:Class>
+  <owl:Class rdf:ID="A12">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#A1"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#B">
+    <rdfs:subClassOf rdf:resource="#Test"/>
+  </owl:Class>
+  <owl:Class rdf:about="#A1">
+    <rdfs:subClassOf rdf:resource="#A"/>
+  </owl:Class>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4, Build 533)  http://protege.stanford.edu -->

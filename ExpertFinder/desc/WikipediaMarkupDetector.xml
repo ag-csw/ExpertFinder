@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+<frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+<primitive>true</primitive>
+<annotatorImplementationName>de.csw.expertfinder.mediawiki.uima.MediaWikiMarkupDetector</annotatorImplementationName>
+<analysisEngineMetaData>
+<name>MediaWikiMarkupDetector</name>
+<description/>
+<version>1.0</version>
+<vendor/>
+<configurationParameters>
+<configurationParameter>
+<name>ImagePrefix</name>
+<description>The MediaWiki prefix for images (language dependent)</description>
+<type>String</type>
+<multiValued>false</multiValued>
+<mandatory>true</mandatory>
+</configurationParameter>
+<configurationParameter>
+<name>CategoryPrefix</name>
+<description>The MediaWiki prefix for categories (language dependent)</description>
+<type>String</type>
+<multiValued>false</multiValued>
+<mandatory>true</mandatory>
+</configurationParameter>
+</configurationParameters>
+<configurationParameterSettings>
+<nameValuePair>
+<name>ImagePrefix</name>
+<value>
+<string>Image</string>
+</value>
+</nameValuePair>
+<nameValuePair>
+<name>CategoryPrefix</name>
+<value>
+<string>Category</string>
+</value>
+</nameValuePair>
+</configurationParameterSettings>
+<typeSystemDescription>
+<imports>
+<import location="MediaWikiMarkupDetectorTypeSystem.xml"/>
+</imports>
+</typeSystemDescription>
+<typePriorities/>
+<fsIndexCollection/>
+<capabilities>
+<capability>
+<inputs/>
+<outputs/>
+<languagesSupported/>
+</capability>
+</capabilities>
+<operationalProperties>
+<modifiesCas>true</modifiesCas>
+<multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+<outputsNewCASes>false</outputsNewCASes>
+</operationalProperties>
+</analysisEngineMetaData>
+<resourceManagerConfiguration/>
+</analysisEngineDescription>

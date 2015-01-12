@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="de.csw.expertfinder.expertise">
+  <class name="AuthorCredibility" table="author_has_credibility">
+  
+	  <composite-id>
+	  	<key-many-to-one name="author" column="id_author" lazy="false" />
+	  	<key-many-to-one name="concept" column="id_concept" lazy="false" />
+	  </composite-id>
+	  
+	  <property name="expertise" type="java.lang.Double" />
+	  <property name="expertiseAll" column="expertise_all" type="java.lang.Double" />
+	  <property name="expertiseItemCount" column="expertise_item_count" type="java.lang.Long" />
+	  <property name="expertiseItemCountAll" column="expertise_item_count_all" type="java.lang.Long" />
+
+	  <property name="credibility" type="java.lang.Double" />
+	  <property name="credibilityAll" column="credibility_all" type="java.lang.Double" />
+	  <property name="credibilityItemCount" column="credibility_item_count" type="java.lang.Long" />
+	  <property name="credibilityItemCountAll" column="credibility_item_count_all" type="java.lang.Long" />
+
+  </class>
+</hibernate-mapping>

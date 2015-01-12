@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+<name>ParagraphDetectorTypeSystem</name>
+<description></description>
+<version>1.0</version>
+<vendor></vendor>
+
+<types>
+<typeDescription>
+<name>de.csw.expertfinder.mediawiki.uima.types.markup.Paragraph</name>
+<description>A Paragraph, excluding section titles enclosed by "="</description>
+<supertypeName>uima.tcas.Annotation</supertypeName>
+</typeDescription>
+</types>
+
+</typeSystemDescription>
+

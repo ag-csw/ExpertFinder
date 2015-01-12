@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+<frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+<primitive>true</primitive>
+<annotatorImplementationName>de.csw.expertfinder.uima.GermanTokenizerAndStemmer</annotatorImplementationName>
+<analysisEngineMetaData>
+<name>GermanStemmer</name>
+<description></description>
+<version>1.0</version>
+<vendor></vendor>
+<configurationParameters searchStrategy="language_fallback">
+<configurationGroup names="db">
+<configurationParameter>
+<name>connectionURL</name>
+<type>String</type>
+<multiValued>false</multiValued>
+<mandatory>true</mandatory>
+</configurationParameter>
+<configurationParameter>
+<name>user</name>
+<type>String</type>
+<multiValued>false</multiValued>
+<mandatory>true</mandatory>
+</configurationParameter>
+<configurationParameter>
+<name>password</name>
+<type>String</type>
+<multiValued>false</multiValued>
+<mandatory>true</mandatory>
+</configurationParameter>
+</configurationGroup>
+<configurationGroup names="stopwords">
+<configurationParameter>
+<name>filePath</name>
+<type>String</type>
+<multiValued>false</multiValued>
+<mandatory>true</mandatory>
+</configurationParameter>
+</configurationGroup>
+</configurationParameters>
+<configurationParameterSettings>
+<settingsForGroup name="stopwords">
+<nameValuePair>
+<name>filePath</name>
+<value>
+<string>/Users/ralph/uima_workspace/openthesaurus/www/admin/stopwords_de.txt</string>
+</value>
+</nameValuePair>
+</settingsForGroup>
+<settingsForGroup name="db">
+<nameValuePair>
+<name>connectionURL</name>
+<value>
+<string>jdbc:mysql://localhost/openthesaurus</string>
+</value>
+</nameValuePair>
+<nameValuePair>
+<name>user</name>
+<value>
+<string>expertfinder</string>
+</value>
+</nameValuePair>
+<nameValuePair>
+<name>password</name>
+<value>
+<string>password (change me)</string>
+</value>
+</nameValuePair>
+</settingsForGroup>
+</configurationParameterSettings>
+<typeSystemDescription>
+<imports>
+<import location="MediaWikiArticleDocumentAnnotationTypeSystem.xml"/>
+<import location="GermanStemmerTypeSystem.xml"/>
+</imports>
+</typeSystemDescription>
+<typePriorities/>
+<fsIndexCollection/>
+<capabilities>
+<capability>
+<inputs/>
+<outputs/>
+<languagesSupported/>
+</capability>
+</capabilities>
+<operationalProperties>
+<modifiesCas>true</modifiesCas>
+<multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+<outputsNewCASes>false</outputsNewCASes>
+</operationalProperties>
+</analysisEngineMetaData>
+<resourceManagerConfiguration/>
+</analysisEngineDescription>

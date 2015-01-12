@@ -15,6 +15,12 @@ The class also has a main method for testing purposes.
 
 ### Using the the UIMA CPE Deployment Tool:
 
+Load the CPE configuration file
+
+`src-mediawiki/de/csw/expertfinder/mediawiki/uima/deploy/ExpertFinder CPE Config.xml`
+
+and run it.
+
 ## Getting reputation and expertise values
 Once the wiki's contents have been processed, the reputation and expertise scores for authors can be retrieved using the class
 

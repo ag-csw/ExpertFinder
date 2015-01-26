@@ -15,7 +15,7 @@ DROP TABLE IF EXISTS `expertfinder`.`document` ;
 SHOW WARNINGS;
 CREATE  TABLE IF NOT EXISTS `expertfinder`.`document` (
   `id` INT NOT NULL ,
-  `title` VARCHAR(256) NOT NULL ,
+  `title` VARCHAR(255) NOT NULL ,
   `redirects_to` INT NULL ,
   PRIMARY KEY (`id`) ,
   UNIQUE INDEX `document_title` (`title` ASC) ,
@@ -39,13 +39,13 @@ DROP TABLE IF EXISTS `expertfinder`.`author` ;
 SHOW WARNINGS;
 CREATE  TABLE IF NOT EXISTS `expertfinder`.`author` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `name` VARCHAR(256) CHARACTER SET 'latin1' COLLATE 'latin1_general_ci' NOT NULL ,
-  `location` VARCHAR(256) CHARACTER SET 'latin1' COLLATE 'latin1_general_ci' NULL ,
+  `name` VARCHAR(255) CHARACTER SET 'latin1' COLLATE 'latin1_general_ci' NOT NULL ,
+  `location` VARCHAR(255) CHARACTER SET 'latin1' COLLATE 'latin1_general_ci' NULL ,
   `isBot` TINYINT(1) NULL ,
   `isAnoymous` TINYINT(1) NULL ,
   `affiliation` VARCHAR(767) NULL ,
-  `realName` VARCHAR(256) NULL ,
-  `position` VARCHAR(256) NULL ,
+  `realName` VARCHAR(255) NULL ,
+  `position` VARCHAR(255) NULL ,
   PRIMARY KEY (`id`) ,
   UNIQUE INDEX `author_name` (`name` ASC) )
 ENGINE = InnoDB
@@ -101,7 +101,7 @@ CREATE  TABLE IF NOT EXISTS `expertfinder`.`section` (
   `id_revision_created` INT NULL ,
   `id_revision_deleted` INT NULL ,
   PRIMARY KEY (`id`) ,
-  INDEX `section_title` (`title` ASC) ,
+  INDEX `section_title` (`title`(255) ASC) ,
   INDEX `fk_section_section1` (`id_parent_section` ASC) ,
   INDEX `fk_section_revision1` (`id_revision_created` ASC) ,
   INDEX `fk_section_revision2` (`id_revision_deleted` ASC) ,
@@ -135,7 +135,7 @@ DROP TABLE IF EXISTS `expertfinder`.`concept` ;
 SHOW WARNINGS;
 CREATE  TABLE IF NOT EXISTS `expertfinder`.`concept` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `uri` VARCHAR(256) NOT NULL ,
+  `uri` VARCHAR(255) NOT NULL ,
   PRIMARY KEY (`id`) ,
   UNIQUE INDEX `concept_uri` (`uri` ASC) )
 ENGINE = InnoDB
@@ -152,8 +152,8 @@ DROP TABLE IF EXISTS `expertfinder`.`word` ;
 SHOW WARNINGS;
 CREATE  TABLE IF NOT EXISTS `expertfinder`.`word` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `word` VARCHAR(256) NOT NULL ,
-  `wordStem` VARCHAR(256) NULL ,
+  `word` VARCHAR(255) NOT NULL ,
+  `wordStem` VARCHAR(255) NULL ,
   `startPos` INT NOT NULL ,
   `endPos` INT NOT NULL ,
   `id_revision_created` INT NULL ,
@@ -295,7 +295,7 @@ CREATE  TABLE IF NOT EXISTS `expertfinder`.`link` (
   `endPos` INT NOT NULL ,
   `id_revision_created` INT NULL ,
   `id_revision_deleted` INT NULL ,
-  `text` VARCHAR(256) CHARACTER SET 'latin1' COLLATE 'latin1_general_ci' NULL ,
+  `text` VARCHAR(255) CHARACTER SET 'latin1' COLLATE 'latin1_general_ci' NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `fk_link_section1` (`id_source_section` ASC) ,
   INDEX `fk_link_section2` (`id_target_section` ASC) ,
@@ -335,7 +335,7 @@ DROP TABLE IF EXISTS `expertfinder`.`category` ;
 SHOW WARNINGS;
 CREATE  TABLE IF NOT EXISTS `expertfinder`.`category` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `name` VARCHAR(256) CHARACTER SET 'latin1' COLLATE 'latin1_general_ci' NOT NULL ,
+  `name` VARCHAR(255) CHARACTER SET 'latin1' COLLATE 'latin1_general_ci' NOT NULL ,
   PRIMARY KEY (`id`) ,
   UNIQUE INDEX `category_name` (`name` ASC) )
 ENGINE = InnoDB
@@ -395,7 +395,7 @@ DROP TABLE IF EXISTS `expertfinder`.`application_data` ;
 SHOW WARNINGS;
 CREATE  TABLE IF NOT EXISTS `expertfinder`.`application_data` (
   `key` VARCHAR(128) NOT NULL ,
-  `value` VARCHAR(256) NULL ,
+  `value` VARCHAR(255) NULL ,
   PRIMARY KEY (`key`) )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1

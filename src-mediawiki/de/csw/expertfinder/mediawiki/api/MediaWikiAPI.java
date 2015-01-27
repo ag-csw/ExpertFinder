@@ -488,7 +488,11 @@ public class MediaWikiAPI {
 						Element queryContinueElement = (Element) queryContinues.item(0);
 						NodeList nextRevisionsElements = queryContinueElement.getElementsByTagName("revisions");
 						Element nextRevisions = (Element) nextRevisionsElements.item(0);
-						rvstartid = Integer.parseInt(nextRevisions.getAttribute("rvstartid"));
+						String rvstartidStr = nextRevisions.getAttribute("rvstartid");
+						if (rvstartidStr == null || rvstartidStr.isEmpty()) {
+							rvstartidStr = nextRevisions.getAttribute("rvcontinue"); 
+						}
+						rvstartid = Integer.parseInt(rvstartidStr);
 					}
 				} catch (MediaWikiAPIException e) {
 					log.error("Request to MediaWiki API failed", e);
